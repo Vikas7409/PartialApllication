@@ -1,0 +1,30 @@
+using Microsoft.AspNetCore.Mvc;
+using ParitialClassProject.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace ParitialClassProject.Controllers
+{
+    public class PartialController : Controller
+    {
+        public IActionResult Index()
+        {
+            var model = new PartialViewModel
+            {
+                Id = 1,
+                Firstname = "James",
+                Surname = "Bond",
+                Address = new AddressViewModel
+                {
+                    Line1 = "Secret Location",
+                    Line2 = "London",
+                    Line3 = "UK"
+                }
+            };
+            return View(model);
+
+        }
+    }
+}
